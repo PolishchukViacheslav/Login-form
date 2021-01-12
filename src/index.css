@@ -1,13 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  font-size: 10px;
+}
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  @apply font-roboto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  margin: 0;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@layer components {
+  .form-container {
+    @apply grid place-items-center bg-main;
+    height: 100vh;
+  }
+
+  .form-wrapper {
+    @apply rounded-s px-2 sm:px-12 pb-12 pt-14 bg-white;
+    min-width: 320px;
+    max-width: 453px;
+  }
+  .form {
+    @apply rounded-s;
+  }
+
+  .form__header {
+    @apply font-bold text-lightBlack text-xl text-center mb-6;
+  }
+
+  .form__label {
+    @apply flex flex-col font-medium text-label text-lg mb-5;
+  }
+
+  .form__input {
+    @apply p-7 text-placeholder text-sm border border-grey rounded-xxs mt-5 
+  }
+
+  .form__input--checkbox{
+    @apply flex items-center mb-6
+  }
+
+
+  .form__input--checkbox > input{
+    @apply mr-6
+  }
+
+  .form__input--checkbox > label{
+    @apply text-sm text-label
+  }
+
+  .submit{
+    @apply flex flex-col
+  }
+
+  .submit--byEmail{
+    @apply bg-main p-7 text-white font-bold text-sm rounded-xxs mt-5 mb-10
+  }
+
+  .submit__firebaseAuth{
+    @apply grid gap-x-5 grid-cols-2
+  }
+
+  .submit__firebaseAuth--byGoogle{
+    @apply flex bg-main p-7 text-white font-bold text-sm rounded-xxs
+  }
+  .submit__firebaseAuth--byGoogle > span{
+    @apply ml-3
+  }
+
+  .submit__divider{
+    @apply mb-10 text-sm text-divider text-center
+  }
+
+  .submit__divider > span{
+    position: relative;
+  }
+
+  .submit__divider > span::before{
+    content: '';
+    @apply w-24 h-1 bg-divider absolute left-1/2 top-1/2;
+    transform: translate(-150%, -50%);
+  }
+
+  .submit__divider > span::after{
+    content: '';
+    @apply w-24 h-1 bg-divider absolute right-1/2 top-1/2;
+    transform: translate(150%, -50%);
+  }
+
 }
